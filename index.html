@@ -7,7 +7,7 @@
 <style>
 :root{--ink:#101827;--gold:#b4863c;--cream:#f7f4ee;--muted:#687182;--line:#e5dfd4}
 *{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-nav{height:68px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;background:#f7f4eef2;backdrop-filter:blur(10px);z-index:5}
+nav{height:68px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;background:#f7f4eef2;backdrop-filter:blur(10px)}
 .logo{font-size:21px;font-weight:800}.logo span{color:var(--gold)}nav a{color:var(--ink);text-decoration:none;font-size:13px;font-weight:700;margin-left:22px}
 .hero{text-align:center;padding:85px 6% 78px;background:linear-gradient(145deg,#f8f5ef,#ebe5d9)}
 .kicker{font-size:10px;letter-spacing:2.2px;font-weight:800;color:var(--gold)}
@@ -16,8 +16,8 @@ h1{font:700 clamp(52px,10vw,90px)/.93 Georgia,serif;letter-spacing:-3px;margin:1
 .search input{width:100%;padding:18px 20px;border:1px solid #d7d0c4;border-radius:14px;background:#fff;font:inherit;outline:none}
 main{max-width:1180px;margin:auto;padding:65px 6%}.heading{display:flex;justify-content:space-between;align-items:end;margin-bottom:26px}
 h2{font:700 40px Georgia,serif;margin:0}.count{font-size:12px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px;min-height:190px;transition:.2s}
-.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #2c24120d}.icon{font-size:28px}.card h3{margin:14px 0 7px;font-size:19px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:25px;min-height:190px;transition:.2s;cursor:pointer}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #2c24120d}.card a{text-decoration:none;color:inherit;display:block;height:100%}.icon{font-size:28px}.card h3{margin:14px 0 7px;font-size:19px}
 .card p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}.card button{border:0;background:none;padding:17px 0 0;color:var(--gold);font-weight:800;cursor:pointer}
 .feature{margin-top:68px;background:var(--ink);color:#fff;border-radius:22px;padding:40px;display:flex;justify-content:space-between;align-items:center;gap:30px}
 .feature h2{font-size:32px}.feature p{max-width:650px;color:#c7ced8;line-height:1.7}.pill{background:#fff;color:var(--ink);padding:12px 16px;border-radius:10px;font-weight:800;font-size:13px}
@@ -25,7 +25,7 @@ footer{border-top:1px solid var(--line);padding:28px 6%;display:flex;justify-con
 .modal{position:fixed;inset:0;background:#0009;display:none;align-items:center;justify-content:center;padding:20px;z-index:20}.modal.show{display:flex}
 .box{max-width:560px;width:100%;background:#fff;border-radius:20px;padding:28px}.box h3{font:700 28px Georgia,serif;margin:0 0 10px}.box p{color:var(--muted);line-height:1.7}
 .close{float:right;border:0;border-radius:50%;width:32px;height:32px;cursor:pointer}
-@media(max-width:800px){.grid{grid-template-columns:1fr 1fr}.feature{display:block}}@media(max-width:560px){nav{padding:0 20px}nav a{display:none}.hero{padding:65px 20px}.grid{grid-template-columns:1fr}main{padding:50px 20px}.feature{padding:28px}footer{padding:25px 20px}}
+@media(max-width:800px){.grid{grid-template-columns:1fr 1fr}.feature{display:block}}@media(max-width:560px){nav{padding:0 20px}nav a{display:none}.hero{padding:65px 20px}.grid{grid-template-columns:1fr}.feature{padding:25px}}
 </style>
 </head>
 <body>
@@ -36,21 +36,22 @@ footer{border-top:1px solid var(--line);padding:28px 6%;display:flex;justify-con
 <div class="search"><input id="search" type="search" placeholder="Search notes, case laws, judgments..."></div></section>
 <main id="library"><div class="heading"><div><div class="kicker">LIBRARY</div><h2>Explore FoxOfLaw</h2></div><div class="count" id="count"></div></div>
 <div class="grid" id="grid"></div>
-<section class="feature" id="opportunities"><div><div class="kicker">LEGAL OPPORTUNITIES</div><h2>Internships & Opportunities</h2><p>Curated internships, chambers, competitions and other opportunities for law students.</p></div><div class="pill">Coming soon →</div></section></main>
+<section class="feature" id="opportunities"><div><div class="kicker">LEGAL OPPORTUNITIES</div><h2>Internships & Opportunities</h2><p>Curated internships, chambers, competitions and other opportunities for law students and legal professionals.</p></div><div class="pill">Coming Soon</div></section>
 <footer><div><strong>FoxOfLaw</strong><br>Think Sharp. Know the Law.</div><div>© 2026 FoxOfLaw</div></footer>
 <div class="modal" id="modal"><div class="box"><button class="close" onclick="closeModal()">×</button><h3 id="mt"></h3><p id="mp"></p></div></div>
 <script>
 const items=[
-["📚","Law Notes","Subject-wise notes for exams, revision and practical learning.","Your curated notes will appear here."],
-["⚖️","Case Laws","Landmark judgments and important case summaries for quick revision.","Your curated case-law library will appear here."],
-["🧑‍⚖️","Judgments","Important Supreme Court and High Court decisions.","Judgments can be added here."],
-["📰","Legal Updates","Important legal developments and recent updates.","Your published legal updates can appear here."],
-["💼","Internships & Opportunities","Curated internships, chambers, competitions and student opportunities.","Opportunities can appear here."],
-["🔎","Legal Research","Research guides, case analysis and useful legal research resources.","Research resources can be added here."]
+["📚","Law Notes","Subject-wise notes for exams, revision and practical learning.","law-notes.html"],
+["⚖️","Case Laws","Landmark judgments and important case summaries for quick revision.","case-laws.html"],
+["🧑‍⚖️","Judgments","Important Supreme Court and High Court decisions.","judgments.html"],
+["📰","Legal Updates","Important legal developments and recent updates.","legal-updates.html"],
+["💼","Internships & Opportunities","Curated internships, chambers, competitions and student opportunities.","opportunities.html"],
+["🔎","Legal Research","Research guides, case analysis and useful legal research resources.","research.html"]
 ];
 const grid=document.getElementById("grid"),count=document.getElementById("count"),search=document.getElementById("search"),modal=document.getElementById("modal"),mt=document.getElementById("mt"),mp=document.getElementById("mp");
-function render(q=""){let a=items.filter(x=>(x[1]+" "+x[2]).toLowerCase().includes(q.toLowerCase()));grid.innerHTML=a.map(x=>`<article class="card"><div class="icon">${x[0]}</div><h3>${x[1]}</h3><p>${x[2]}</p><button onclick="openModal(${items.indexOf(x)})">Explore →</button></article>`).join("");count.textContent=a.length+" resources"}
-function openModal(i){mt.textContent=items[i][1];mp.textContent=items[i][3];modal.classList.add("show")}function closeModal(){modal.classList.remove("show")}
+function render(q=""){let a=items.filter(x=>(x[1]+" "+x[2]).toLowerCase().includes(q.toLowerCase()));grid.innerHTML=a.map((x,i)=>`<article class="card"><div class="icon">${x[0]}</div><h3>${x[1]}</h3><p>${x[2]}</p><button onclick="openItem(${i})">Explore →</button></article>`).join("");count.textContent=a.length+" sections"}
+function openItem(i){let link=items[i][3]; if(link.endsWith('.html')){window.location.href=link}else{mt.textContent=items[i][1];mp.textContent=items[i][3];modal.classList.add("show")}}
+function closeModal(){modal.classList.remove("show")}
 search.oninput=e=>render(e.target.value);modal.onclick=e=>{if(e.target===modal)closeModal()};render();
 </script>
 </body>
