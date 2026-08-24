@@ -1,0 +1,262 @@
+Sorry about that—the code didn't render properly in the last message. Here is the full HTML file combining both **Constitutional Law I** and **Constitutional Law II** notes into your custom catalog template.
+
+Copy the code block below, save it as a file named `notes.html`, and open it directly in any browser:
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Constitutional Law Master Notes — FoxOfLaw</title>
+<style>
+:root{--ink:#101827;--gold:#b4863c;--cream:#f7f4ee;--muted:#687182;--line:#e5dfd4;--white:#fff}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+nav{height:68px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);position:sticky;top:0;background:#f7f4eef2;backdrop-filter:blur(10px);z-index:10}
+.logo{font-size:21px;font-weight:800}.logo span{color:var(--gold)}
+nav a{color:var(--ink);text-decoration:none;font-size:13px;font-weight:700;margin-left:22px}
+.hero{text-align:center;padding:75px 6% 65px;background:linear-gradient(145deg,#f8f5ef,#ebe5d9)}
+.kicker{font-size:10px;letter-spacing:2.2px;font-weight:800;color:var(--gold)}
+h1{font:700 clamp(40px,8vw,70px)/.95 Georgia,serif;letter-spacing:-2px;margin:15px 0}
+.hero p{max-width:720px;margin:20px auto;color:var(--muted);line-height:1.7}
+.stats{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 15px;font-size:12px;font-weight:700}
+.search{max-width:700px;margin:30px auto 0}
+.search input{width:100%;padding:17px 20px;border:1px solid #d7d0c4;border-radius:14px;background:#fff;font:inherit;outline:none}
+main{max-width:1180px;margin:auto;padding:55px 6%}
+.toolbar{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:28px}
+h2{font:700 38px Georgia,serif;margin:0}
+.count{font-size:12px;color:var(--muted)}
+.part{background:#fff;border:1px solid var(--line);border-radius:20px;margin:16px 0;overflow:hidden;scroll-margin-top:90px}
+.part-head{padding:25px 28px;background:#fbfaf7;border-bottom:1px solid var(--line)}
+.part-no{font-size:11px;font-weight:800;letter-spacing:1.7px;color:var(--gold)}
+.part-title{font:700 27px Georgia,serif;margin:7px 0}
+.range{font-size:12px;color:var(--muted)}
+.articles{padding:8px 28px 20px}
+.group-title{font-size:14px;font-weight:800;margin:22px 0 10px;color:var(--gold);letter-spacing:.3px;border-bottom:1px solid #f0ebe1;padding-bottom:4px}
+.article{padding:15px 0;border-bottom:1px solid #eee9df}
+.article:last-child{border-bottom:0}
+.article h3{font-size:16px;margin:0 0 6px}
+.article p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+.note{margin:28px 0;padding:20px 22px;background:var(--ink);color:#fff;border-radius:18px;line-height:1.65;font-size:13px}
+footer{border-top:1px solid var(--line);padding:28px 6%;display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
+@media(max-width:700px){
+ nav{padding:0 20px}nav a{display:none}
+ .hero{padding:60px 20px 50px}
+ main{padding:40px 20px}
+ .toolbar{display:block}
+ h2{font-size:32px}.count{margin-top:8px}
+ .part-head{padding:22px 20px}.articles{padding:5px 20px 16px}
+ footer{padding:25px 20px;gap:20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">🦊 <span>FoxOfLaw</span></div>
+  <div>
+    <a href="#">Home</a>
+    <a href="#constitution">Master Notes</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="kicker">FOXOFLAW • CONSTITUTIONAL LAW MODULE</div>
+  <h1>Constitutional Law<br><i>I & II Master Notes.</i></h1>
+  <p>Comprehensive structured syllabus breakdown covering Constitutional Organs, Federal Relations, Fundamental Rights, Writs, DPSPs, and Landmark Case Law.</p>
+  <div class="stats">
+    <div class="stat">2 Papers (Const I & II)</div>
+    <div class="stat">8 Complete Units</div>
+    <div class="stat">Landmark Precedents</div>
+  </div>
+  <div class="search">
+    <input id="search" type="search" placeholder="Search Kesavananda, Article 21, Writs, Pith and Substance...">
+  </div>
+</section>
+
+<main id="constitution">
+  <div class="toolbar">
+    <div>
+      <div class="kicker">COMPLETE SYLLABUS CATALOG</div>
+      <h2>Constitutional Law Modules</h2>
+    </div>
+    <div class="count" id="count"></div>
+  </div>
+
+  <div class="note">
+    <strong>Study note:</strong> Combined revision master notes for Constitutional Law – I and Constitutional Law – II based on official syllabus requirements.
+  </div>
+
+  <div id="content"></div>
+</main>
+
+<footer>
+  <div><strong>FoxOfLaw</strong><br>Think Sharp. Know the Law.</div>
+  <div>© 2026 FoxOfLaw</div>
+</footer>
+
+<script>
+const parts = [
+{
+no:"CONSTITUTIONAL LAW – I", title:"Unit I: Meaning & Concept of Constitution", range:"Lectures-08",
+groups:[
+{title:"1. Definition, Constitutionalism & Classification",items:[
+["Definition of Constitution","Fundamental law establishing state structure, organ powers, and limits on government."],
+["Constitutionalism","Principle of limited government under the Rule of Law, checks and balances, and rights protection."],
+["Classification","Written vs. Unwritten (Codified like USA/India vs. Uncodified like UK); Rigid vs. Flexible (Amendment difficulty). India combines rigidity and flexibility."]
+]},
+{title:"2. Sources & Framing",items:[
+["Framing Process","Drafted by Constituent Assembly (1946–1949); Dr. Rajendra Prasad (President), Dr. B.R. Ambedkar (Drafting Committee Chair). Took 2 yrs, 11 mos, 18 days."],
+["Major Sources","GoI Act 1935 (Federal structure, Office of Governor); US Constitution (Fundamental Rights, Judicial Review); British Constitution (Parliamentary form, Writs, Rule of Law); Irish (DPSP); Canadian (Strong Centre, Residuary powers)."]
+]},
+{title:"3. Preamble & Salient Features",items:[
+["Preamble Objectives","Declares India a 'Sovereign, Socialist, Secular, Democratic Republic' ensuring Justice, Liberty, Equality, and Fraternity."],
+["Legal Status of Preamble","Berubari Union (1960) held it is not part of Constitution; Kesavananda Bharati (1973) overruled it, holding Preamble IS an integral part and amendable under Art 368 without altering Basic Structure. (42nd Amendment added: Socialist, Secular, Integrity)."],
+["Nature: Federal or Quasi-Federal?","K.C. Wheare described it as 'Quasi-Federal'. Features Federal structure with Unitary bias (Single citizenship, Emergency provisions, Residuary powers to Centre). S.R. Bommai (1994) affirmed Federalism is part of Basic Structure."]
+]}
+]
+},
+{
+no:"CONSTITUTIONAL LAW – I", title:"Unit II: Constitutional Organs of the Government", range:"Lectures-10",
+groups:[
+{title:"1. Parliament",items:[
+["Composition (Art 79)","President + Rajya Sabha (Council of States, Art 80) + Lok Sabha (House of People, Art 81)."],
+["Parliamentary Sovereignty","Unlike UK, Indian Parliament is limited by Constitutional Supremacy, Federal distribution of powers, and Judicial Review."],
+["Parliamentary Privileges (Art 105 & 194)","Freedom of speech in Parliament, immunity from court proceedings for votes/statements (MSM Sharma Case; Keshav Singh Case)."]
+]},
+{title:"2. Executive Power",items:[
+["Position of President & Governor","Constitutional/De jure heads bound by Aid and Advice of Council of Ministers (Art 74 & 163; Shamsher Singh v. State of Punjab)."],
+["Ordinance Making Power (Arts 123 & 213)","Legislative power during recess. Subject to judicial review; re-promulgation without passing is unconstitutional (D.C. Wadhwa v. State of Bihar)."],
+["Pardoning Power (Arts 72 & 161)","Executive mercy power. President can pardon death sentences/court martial; Governor cannot. Subject to judicial review against arbitrary exercise (Maru Ram, Epuru Sudhakar)."]
+]},
+{title:"3. Judiciary",items:[
+["Supreme Court Jurisdiction","Original (Art 131), Appellate (Arts 132-134), Special Leave Petition (Art 136), Advisory (Art 143), Court of Record (Art 129)."],
+["High Court Jurisdiction","Writ Jurisdiction (Art 226 - wider than Art 32), Superintendence (Art 227)."],
+["Appointment & Judicial Independence","Evolution of Collegium via 1st, 2nd, 3rd Judges Cases. NJAC struck down in 4th Judges Case (2015) to preserve Judicial Independence as Basic Structure."]
+]}
+]
+},
+{
+no:"CONSTITUTIONAL LAW – I", title:"Unit III: Distribution of Powers (Union & States)", range:"Lectures-10",
+groups:[
+{title:"1. Legislative, Administrative & Financial Relations",items:[
+["Legislative Relations (Arts 245-255)","7th Schedule: List I (Union), List II (State), List III (Concurrent). Residuary powers (Art 248) rest with Union."],
+["Administrative & Financial Relations","Union directions (Arts 256-257), All India Services (Art 312), GST Council (Art 279A), Finance Commission (Art 280)."]
+]},
+{title:"2. Key Constitutional Doctrines",items:[
+["Doctrine of Territorial Nexus","State law applies extra-territorially if sufficient real connection exists (State of Bombay v. R.M.D.C.)."],
+["Doctrine of Harmonious Construction","Entries/provisions overlapping are interpreted to give full effect to both without rendering either redundant."],
+["Doctrine of Pith and Substance","Determines true nature/character of law when encroaching another list; incidental encroachment is permitted (State of Bombay v. F.N. Balsara)."],
+["Doctrine of Repugnancy (Art 254)","Conflict between Union and State law on Concurrent List makes State law void unless Presidential assent granted under Art 254(2) (Deep Chand; M. Karunanidhi)."],
+["Colourable Legislation","'What cannot be done directly, cannot be done indirectly.' Limits legislative competence disguised as valid law (Kameshwar Singh v. State of Bihar)."]
+]}
+]
+},
+{
+no:"CONSTITUTIONAL LAW – I", title:"Unit IV: Emergency, Amendments & Trade/Commerce", range:"Lectures-10",
+groups:[
+{title:"1. Freedom of Trade, Commerce & Intercourse (Arts 301-307)",items:[
+["Article 301","Guarantees free trade, commerce, and intercourse throughout India."],
+["Restrictions & Precedents","Parliament (Art 302) and States (Art 304b) can impose reasonable restrictions in public interest. Atiabari Tea Co. (Taxing directly restricting trade violates 301); Automobile Transport Ltd. (Compensatory taxes valid)."]
+]},
+{title:"2. Emergency Provisions (Arts 352-360)",items:[
+["National Emergency (Art 352)","Grounds: War, External Aggression, Armed Rebellion. Art 19 suspended only in War/Aggression (Art 358); Arts 20 & 21 can NEVER be suspended (Art 359)."],
+["President's Rule (Art 356)","Failure of constitutional machinery in State. Strictly reviewable by courts; mandatory floor test (S.R. Bommai v. UOI)."],
+["Financial Emergency (Art 360)","Threat to financial stability of India (Never invoked)."]
+]},
+{title:"3. Amendment Procedure & Basic Structure (Art 368)",items:[
+["Amendment Process","Special majority under Art 368; ratification by 50% states for federal provisions."],
+["Basic Structure Evolution","Shankari Prasad (1951) & Sajjan Singh (1965) allowed FR amendments -> Golaknath (1967) restricted FR amendments -> Kesavananda Bharati (1973) established Basic Structure Doctrine -> Minerva Mills (1980) reaffirmed balance between FRs & DPSPs."]
+]}
+]
+},
+{
+no:"CONSTITUTIONAL LAW – II", title:"Unit I: Fundamental Rights – I", range:"Lectures-12",
+groups:[
+{title:"1. General Principles & Article 12/13",items:[
+["Evolution & Nature","Part III (Arts 12-35) provides justiciable individual rights against arbitrary state action."],
+["Definition of 'State' (Art 12)","Government, Parliament, State Legislatures, Local Authorities, & Other Authorities. Tests for agency/instrumentality established in R.D. Shetty, Ajay Hasia, and Pradeep Kumar Biswas."],
+["Article 13 Doctrines","Laws inconsistent with FRs are void. Doctrine of Eclipse (Bhikaji Narain), Doctrine of Severability (RMDC v. UOI), Doctrine of Waiver (Basheshar Nath - FRs cannot be waived)."]
+]},
+{title:"2. Right to Equality & Freedoms (Arts 14-19)",items:[
+["Right to Equality (Arts 14-18)","Art 14: Equality before law & Equal protection of laws. Old Test: Reasonable Classification (Intelligible Differentia + Rational Nexus). New Test: Non-arbitrariness (E.P. Royappa, Maneka Gandhi). Arts 15 & 16 permit affirmative action/reservations (Indra Sawhney). Art 17 abolishes Untouchability."],
+["Fundamental Freedoms (Art 19)","Six freedoms under Art 19(1). Freedom of Press included under 19(1)(a) (Romesh Thappar, Anuradha Bhasin). Subject to reasonable restrictions under 19(2)-(6) tested by Doctrine of Proportionality."]
+]}
+]
+},
+{
+no:"CONSTITUTIONAL LAW – II", title:"Unit II: Fundamental Rights – II", range:"Lectures-15",
+groups:[
+{title:"1. Life, Liberty & Criminal Safeguards (Arts 20-22)",items:[
+["Protection for Conviction (Art 20)","20(1) No Ex-Post Facto Penal Law; 20(2) No Double Jeopardy (Maqbool Hussain); 20(3) Protection against Self-Incrimination (Selvi v. State of Karnataka)."],
+["Right to Life & Personal Liberty (Art 21)","Expanded from narrow view in A.K. Gopalan to wide 'due process' procedure in Maneka Gandhi. Encompasses privacy (Puttaswamy), clean environment, legal aid, speedy trial."],
+["Right to Education (Art 21A) & Detention (Art 22)","Art 21A inserted by 86th Amendment (RTE Act 2009). Art 22 provides procedural safeguards against arrest and rules for preventive detention."]
+]},
+{title:"2. Exploitation, Religion & Minority Rights (Arts 23-30)",items:[
+["Right Against Exploitation (Arts 23-24)","Art 23 bans human trafficking and forced labor/begar (PUDR v. UOI). Art 24 bans child labor under 14 in hazardous work (MC Mehta)."],
+["Freedom of Religion (Arts 25-28)","Art 25 guarantees freedom of conscience and propagation (excludes forced conversion - Rev. Stainislaus). Subject to Essential Religious Practices test (Sabarimala Case). Art 26 manages religious affairs."],
+["Educational & Cultural Rights (Arts 29-30)","Art 29 protects distinct culture/language. Art 30 grants minorities right to establish/administer educational institutions (TMA Pai Foundation; PA Inamdar)."]
+]}
+]
+},
+{
+no:"CONSTITUTIONAL LAW – II", title:"Unit III: Right to Constitutional Remedies", range:"Lectures-07",
+groups:[
+{title:"Writs & Public Interest Litigation",items:[
+["Article 32 vs Article 226","Art 32 is itself an FR (Supreme Court enforcement of Part III only). Art 226 is a constitutional remedy (High Court enforcement of Part III + legal rights)."],
+["Types of Writs","Habeas Corpus (produce body); Mandamus (command official duty); Certiorari (quash lower court order); Prohibition (prevent jurisdictional excess); Quo-Warranto (challenge illegal office holding)."],
+["Public Interest Litigation (PIL)","Relaxation of Locus Standi for public good/vulnerable groups (Hussainara Khatoon, SP Gupta, Bandhua Mukti Morcha). Epistolary jurisdiction allows letter petitions. Safeguards against misuse laid in Balwant Singh Chaufal."]
+]}
+]
+},
+{
+no:"CONSTITUTIONAL LAW – II", title:"Unit IV: Directive Principles & Fundamental Duties", range:"Lectures-06",
+groups:[
+{title:"DPSPs and Fundamental Duties",items:[
+["Nature of DPSPs (Arts 36-51)","Non-justiciable (Art 37) welfare guidelines inspired by Irish Constitution. Categorized as Socialistic (Arts 38, 39, 39A), Gandhian (Arts 40, 43, 47, 48), Liberal-Intellectual (Arts 44 UCC, 48A, 50)."],
+["FRs vs. DPSPs Harmony","Champakam Dorairajan (FRs superior) -> 25th Amendment (Art 31C priority) -> Minerva Mills (1980) held FRs and DPSPs are twin wheels of a chariot; harmony between them is Basic Structure."],
+["Fundamental Duties (Art 51A)","Added by 42nd Amendment (1976) via Swaran Singh Committee (10 duties); 11th duty added by 86th Amendment (2002). Non-justiciable but used to interpret statutory provisions (Justice Verma Committee)."]
+]}
+]
+}
+];
+
+const content=document.getElementById("content");
+const count=document.getElementById("count");
+const search=document.getElementById("search");
+
+function render(q=""){
+  const query=q.trim().toLowerCase();
+  let visible=0;
+  content.innerHTML=parts.map((part,pi)=>{
+    const groups=part.groups.map(group=>{
+      const items=group.items.filter(item=>
+        !query || (part.no+" "+part.title+" "+part.range+" "+group.title+" "+item[0]+" "+item[1]).toLowerCase().includes(query)
+      );
+      visible+=items.length;
+      if(!items.length)return "";
+      return `<div class="group-title">${group.title}</div>`+
+        items.map(item=>`<article class="article"><h3>${item[0]}</h3><p>${item[1]}</p></article>`).join("");
+    }).join("");
+    if(!groups)return "";
+    return `<section class="part" id="part-${pi+1}">
+      <div class="part-head">
+        <div class="part-no">${part.no}</div>
+        <div class="part-title">${part.title}</div>
+        <div class="range">${part.range}</div>
+      </div>
+      <div class="articles">${groups}</div>
+    </section>`;
+  }).join("");
+  count.textContent=visible+" topic entries • "+parts.length+" Units listed";
+}
+search.addEventListener("input",e=>render(e.target.value));
+render();
+</script>
+</body>
+</html>
+
+```
